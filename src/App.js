@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Menu from './components/Menu';
+import HomePage from './components/pages/HomePage';
+import GamePage from './components/pages/GamePage';
+import GamePageDelete from './components/pages/GamePageDelete';
+import GamePageEdit from './components/pages/GamePageEdit';
+import AboutUsPage from './components/pages/AboutUsPage';
+import Header from './components/Header';
 
-function App() {
+
+// import Game from './components/game/Game';
+// import Games from './components/games/Games';
+
+
+ 
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="ui container">
+        <Header />
+      <Router>
+        <Menu />
+        <Switch>
+            <Route path="/" exact component={() => <HomePage />} />
+            <Route path="/games" exact component={GamePage} />
+            <Route path="/games/delete" exact component={GamePageDelete} />
+            <Route path="/games/edit" exact component={GamePageEdit} />
+            <Route path="/aboutus" exact component={AboutUsPage} />
+
+          {/* <Route path="/games/Games" component={Game} />
+          <Route path="/game/Game" component={Game} /> */}
+
+          </Switch>
+          
+      </Router>
+      </div>
     </div>
   );
 }

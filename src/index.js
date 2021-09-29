@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import gameReducer from './redux/reducers/gameReducer'
+
+
+const store = createStore(gameReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Provider store={store}>
+      <App />
+      </Provider>
+  </Router>,
+
+
   document.getElementById('root')
 );
 
