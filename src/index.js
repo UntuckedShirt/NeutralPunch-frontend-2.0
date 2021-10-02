@@ -8,6 +8,10 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import gameReducer from './redux/reducers/gameReducer'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
+
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
 const store = createStore(gameReducer, composeWithDevTools(applyMiddleware(thunk)))
