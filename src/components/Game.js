@@ -4,6 +4,7 @@ import Review from './Review';
 import { connect } from 'react-redux';
 import { fetchGames } from '../redux/actions/gameActions';
 import NewReviewForm from './NewReviewForm';
+import EditReviewForm from './EditReviewForm';
 
 class Game extends React.Component {
     constructor(props) {
@@ -66,7 +67,15 @@ class Game extends React.Component {
                     })}> Write review </button>
                     <br />
                     <br />
-                    {this.state.showReviewForm && <NewReviewForm gameId={ game.id}/>}
+              {this.state.showReviewForm && <NewReviewForm gameId={game.id} />}
+              <div className="container py-5">
+                    <button onClick={() => this.setState({
+                        showEditForm: !this.state.showEditForm
+                    })}>Edit Review</button>
+                    <br />
+                    <br />
+                    {this.state.showReviewForm && <EditReviewForm gameId={ game.id}/>}
+              
               <div className="row">
                 
                     <h5 className="mb-2">Reviews</h5>
@@ -74,11 +83,12 @@ class Game extends React.Component {
                   
                 <div className="col-sm-12 col-lg-2">
                   <button type="button" className="btn btn-danger">
-                                Delete
+                    Delete
                   </button>
+                  
                 </div>
               </div>
-              
+              </div>
             </div>
           </div>
         );

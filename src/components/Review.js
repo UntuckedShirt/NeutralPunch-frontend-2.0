@@ -38,7 +38,25 @@ class Review extends React.Component {
                 <br></br>
           </div> 
         )
+        const editForm = ({ handleEdit, review }) => {
+            return (
+                <div>
+                    {review.description} - {review.title} 
+                    <br/>
+                    <button onClick={() => handleEdit(review)}> Edit </button>
+                    {/* <button onClick={() => deleteStudent(review)}>Delete</button> */}
+                </div>
+            );
+        };
 
     }
-}
+    
+    
+} 
+
+
+
+
+
+
 export default Review

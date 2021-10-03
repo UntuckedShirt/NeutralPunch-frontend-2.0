@@ -35,6 +35,17 @@ class NewReviewForm extends React.Component {
     }
 }
 
+// const editForm = ({ handleEdit, review }) => {
+//     return (
+//         <div>
+//             {review.description} - {review.title} 
+//             <br/>
+//             <button onClick={() => handleEdit(review)}> Edit </button>
+//             {/* <button onClick={() => deleteStudent(review)}>Delete</button> */}
+//         </div>
+//     );
+// };
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createReview: (review) => dispatch(createReview(review))
