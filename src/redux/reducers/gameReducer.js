@@ -12,6 +12,18 @@ const gameReducer = (state = {games: []}, action) => {
             return {
                 games: state.games.map(game => game.id === updateGame.id ? updateGame : game)
             }
+        case "EDIT_REVIEW":
+            const editGame = state.games.find(game => game.id === action.review.game_id)
+            editGame.reviews = [...editGame.reviews, action.review]
+            return {
+                games: state.games.map(game => game.id === editGame.id ? editGame : game)
+            }
+        case "DELETE_REVIEW":
+            const deleteGame = state.games.find(game => game.id === action.review.game_id)
+            deleteGame.reviews = [...deleteGame.reviews, action.review]
+            return {
+                games: state.games.map(game => game.id === deleteGame.id ? deleteGame : game)
+            }
         default: 
             return state
 

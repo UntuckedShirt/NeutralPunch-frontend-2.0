@@ -5,7 +5,7 @@ export const editReview = (review) => {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
-
+                "accept": "application/json"
             },
             body: JSON.stringify({
                 review: review

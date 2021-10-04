@@ -7,6 +7,8 @@ class Review extends React.Component {
     constructor(props) {
         super(props)
         this.state = { likes: this.props.review.likes }
+        // this.editReview = this.editReview(this)
+        // this.deleteReview = this.deleteReview(this)
     }
     render() {
         const addLike = () => {
@@ -49,7 +51,19 @@ class Review extends React.Component {
             );
         };
 
+        const editReview = (this.props.editReview)  
+            return (
+                <div>
+                {review.description} - {review.title} 
+                <br/>
+                <button onClick={() => this.props(review)}> Delete </button>
+                </div>
+        )
+        
+
     }
+
+  
     
     
 } 

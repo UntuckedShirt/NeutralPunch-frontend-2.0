@@ -16,7 +16,7 @@ class EditReviewForm extends Component {
     }
 
     componentDidMount() {
-        this.findReview()
+        // this.findReview()
     }
 
     onChange = (e) => {
@@ -33,8 +33,35 @@ class EditReviewForm extends Component {
             description: "review.description",
             game_id: this.props.gameId
         })
+        
+        
     }
+    
+    
+    render() {
+        const onChange = (e) => {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        }
+        const submitForm = (e) => {
+            e.preventDefault()
+            this.props.editReview(this.state)
+        }
+        return (
+            <form onSubmit={submitForm}>
+                <label for="title">title</label>
+                <input type="text" name="title" onChange={ onChange}/>
+                <label for="description">description</label>
+                <input type="text" name="description" onChange={onChange}/>
+                <input type="submit" value="create review" />
+            </form>
+        )
     }
+}
+    
+
+    
 
 
 //     render() {
