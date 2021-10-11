@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import EditReviewForm from './EditReviewForm';
+import game from './Game';
+import { deleteReview } from '../redux/actions/deleteActions';
+import { connect } from 'react-redux';
 
 
 
@@ -29,20 +33,44 @@ class Review extends React.Component {
                 })
             })
         }
-        const {review} = this.props
+        const { review } = this.props
+        const hideEditForm = () => {
+            this.setState({
+                showEditForm: false
+            })
+        }
         return (
             <div className="col-sm-12 col-lg-3">
-            <ul className="list-group"><li className="list-group-item">
-                  {review.description}
-                      </li>
-                  </ul>
+                <div className="container py-5">
+                   
+                    
+                    <ul className="list-group">
+                        <li className="list-group-item">
+
+                        <button onClick={() => this.setState({
+                        showEditForm: !this.state.showEditForm
+                    })}>Edit Review</button>
+                    <br />
+                            <br />
+                            
+                            <button onClick={()=> this.props.deleteReview(review)}>Delete button</button> 
+                            <br />
+                            <br />
+                                
+                            {this.state.showEditForm && <EditReviewForm review={review}
+                                hideEditForm={ hideEditForm }/>}
+                            {review.description}
+                        </li>
+                    </ul>
                 <p>{this.state.likes} <button onClick={addLike}> Like me</button> </p>
                 <br></br>
-          </div> 
+                </div> 
+                </div>
         )
         const editForm = ({ handleEdit, review }) => {
             return (
                 <div>
+                    
                     {review.description} - {review.title} 
                     <br/>
                     <button onClick={() => handleEdit(review)}> Edit </button>
@@ -70,7 +98,11 @@ class Review extends React.Component {
 
 
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteReview: review => dispatch(deleteReview(review))
+    }
+}
 
 
-
-export default Review
+export default connect(null, mapDispatchToProps)(Review)

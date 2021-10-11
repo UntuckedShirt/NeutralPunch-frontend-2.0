@@ -9,9 +9,10 @@ class EditReviewForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: "",
-            description: "",
-            game_id: this.props.gameId
+            title: this.props.review.title,
+            description: this.props.review.description,
+            game_id: this.props.review.game_id,
+            id: this.props.review.id
         }
     }
 
@@ -25,17 +26,31 @@ class EditReviewForm extends Component {
         })
     }
 
-    editReview = () => {
-        const { game, gameId } = this.props
-        const review = review.find(review => review.id === gameId)
-        this.setState({
-            title: "review.title",
-            description: "review.description",
-            game_id: this.props.gameId
-        })
+    // editReview = () => {
+    //     const { game, gameId } = this.props
+    //     const review = review.find(review => review.id === gameId)
+    //     this.setState({
+    //         title: "review.title",
+    //         description: "review.description",
+    //         game_id: this.props.gameId
+    //     })
         
         
-    }
+    // }
+
+    // handleEdit = id => {
+    //     const filteredGames = this.state.games.filter(game =>
+    //         game.id !== id);
+    //     const selectedGame = this.games.state.find(game =>
+    //         game.id === id)
+    //     this.setState({
+    //         games: filteredGames = id,
+    //         items: selectedGame.game_id,
+    //         id: id,
+    //         editGame: true
+    //     });
+
+    // };
     
     
     render() {
@@ -47,14 +62,15 @@ class EditReviewForm extends Component {
         const submitForm = (e) => {
             e.preventDefault()
             this.props.editReview(this.state)
+            this.props.hideEditForm()
         }
         return (
             <form onSubmit={submitForm}>
                 <label for="title">title</label>
-                <input type="text" name="title" onChange={ onChange}/>
+                <input type="text" name="title" onChange={onChange} value={this.state.title }/>
                 <label for="description">description</label>
-                <input type="text" name="description" onChange={onChange}/>
-                <input type="submit" value="create review" />
+                <textarea name="description" rows="4" cols="30" onChange={onChange}>{this.state.description}</textarea>
+                <input type="submit" value="Update review" />
             </form>
         )
     }

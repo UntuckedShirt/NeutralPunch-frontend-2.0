@@ -46,9 +46,11 @@ class Game extends React.Component {
         //       </li>
         //     ));
         // }
-        
+      
+     
     
-        return (
+      return (
+  
           <div className="">
             <div className="hero position-relative align-items-center justify-content-center">
               <img
@@ -56,10 +58,17 @@ class Game extends React.Component {
                 alt={`${game.title} image`}
                 className="img-fluid"
               />
+              
               <div className="overlay bg-dark" />
               <h1 className="display-4 position-relative">
                 {game.title}
+                
               </h1>
+        
+            <div className="container py-5">
+              
+            
+              
             </div>
                 <div className="container py-5">
                     <button onClick={() => this.setState({
@@ -68,23 +77,15 @@ class Game extends React.Component {
                     <br />
                     <br />
               {this.state.showReviewForm && <NewReviewForm gameId={game.id} />}
-              <div className="container py-5">
-                    <button onClick={() => this.setState({
-                        showEditForm: !this.state.showEditForm
-                    })}>Edit Review</button>
-                    <br />
-                    <br />
-                    {this.state.showReviewForm && <EditReviewForm gameId={ game.id}/>}
               
               <div className="row">
                 
                     <h5 className="mb-2">Reviews</h5>
                         {game.reviews.map((review, index) => <Review review={review}/>)} 
+                        
                   
                 <div className="col-sm-12 col-lg-2">
-                  <button type="button" className="btn btn-danger">
-                    Delete
-                  </button>
+                
                   
                 </div>
               </div>

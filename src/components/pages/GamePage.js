@@ -32,7 +32,7 @@ class GamePage extends React.Component {
     const noGame = (
       <div className="vw-100 vh-50 d-flex align-items-center justify-content-center">
         <h4>
-         <Link to="/games">create game</Link>
+         
         </h4>
       </div>
     );
@@ -50,9 +50,7 @@ class GamePage extends React.Component {
         <div className="py-5">
           <main className="container">
             <div className="text-right mb-3">
-              <Link to="/games" className="btn custom-button">
-                Create New Game
-              </Link>
+              
             </div>
             <div className="row">
               {games.length > 0 ? allGames : noGame}
