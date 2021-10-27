@@ -38,8 +38,9 @@ const gameReducer = (state = { games: [] }, action) => {
                 } : game)
             }
         case "FILTER_GAMES":
+            
             return {
-                games: [...state.games.filter(game => game.question.toLowerCase().includes(action.payload.toLowerCase()))]
+                games: [...state.games.filter(game => game.title.toLowerCase().includes(action.payload.toLowerCase()))]
             }
         default: 
             return state

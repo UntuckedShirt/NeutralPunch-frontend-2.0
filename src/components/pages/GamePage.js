@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { fetchGames, searchgame } from "../../redux/actions/gameActions"
 import { connect } from "react-redux";
-
+import FilterGames from "../FilterGames"
 
 
 class GamePage extends React.Component {
@@ -28,7 +28,7 @@ class GamePage extends React.Component {
     const handlechange = (e) => {
       this.props.searchgame(e.target.value)
     }
-    
+
     const { games } = this.props;
   
     const allGames = games.map((game, index) => (
@@ -77,9 +77,7 @@ class GamePage extends React.Component {
                Welcome to the NP Game Reviews!!
             </p>
              
-             <div className="GamePage">
-               <input type="text" placeholder="Search..." onChange={handlechange} />
-             </div>
+             <FilterGames />
 
           </div>
         </section>
@@ -123,4 +121,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect (mapStateToProps, mapDispatchToProps)(GamePage)
+export default connect(mapStateToProps, mapDispatchToProps)(GamePage)
