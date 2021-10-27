@@ -37,11 +37,17 @@ const gameReducer = (state = { games: [] }, action) => {
                     reviews: deleteGame.reviews.filter(review => review.id !== action.review.id)
                 } : game)
             }
+        case "FILTER_GAMES":
+            return {
+                games: [...state.games.filter(game => game.question.toLowerCase().includes(action.payload.toLowerCase()))]
+            }
         default: 
             return state
 
-    }
+    }      
 
 }
+
+
 
 export default gameReducer

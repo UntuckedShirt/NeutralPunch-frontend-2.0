@@ -15,8 +15,9 @@ class EditReviewForm extends Component {
             id: this.props.review.id
         }
     }
-
+    // THIS  , 
     componentDidMount() {
+        //The componentDidMount() method allows us to execute the React code when the component is already placed in the DOM (Document Object Model). This method is called during the Mounting phase of the React Life-cycle
         // this.findReview()
     }
 

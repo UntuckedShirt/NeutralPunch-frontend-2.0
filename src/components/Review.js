@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import EditReviewForm from './EditReviewForm';
 import game from './Game';
-import { deleteReview } from '../redux/actions/deleteActions';
+import {deleteReview} from '../redux/actions/deleteActions';
 import { connect } from 'react-redux';
 
 

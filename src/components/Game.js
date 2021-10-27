@@ -6,6 +6,8 @@ import { fetchGames } from '../redux/actions/gameActions';
 import NewReviewForm from './NewReviewForm';
 import EditReviewForm from './EditReviewForm';
 
+
+
 class Game extends React.Component {
     constructor(props) {
     super(props);
@@ -15,61 +17,43 @@ class Game extends React.Component {
         }
     this.addHtmlEntities = this.addHtmlEntities.bind(this);
     }
-    componentDidMount() {
-        // const {
-        //     match: {
-        //         params: { id }
-        //     }
-        // } = this.props
-        // this.setState({
-        //     game: this.props.games.find(game => game.id === parseInt(id)) 
-        // })
-        
-    }
+    
     addHtmlEntities(str) {
         return String(str)
           .replace(/&lt;/g, "<")
           .replace(/&gt;/g, ">");
     }
-    render() {
-        const id = window.location.pathname.split('/')[2]
+  render() {
 
-        const game = this.props.games.find(game => game.id === parseInt(id)) 
-        let reviewList = "No reviews available";
     
-        // if (game.reviews.length > 0) {
-        //   reviewList = game.reviews
-        //     .split(",")
-        //     .map((review, index) => (
-        //       <li key={index} className="list-group-item">
-        //         {review}
-        //       </li>
-        //     ));
-        // }
+
+    const id = window.location.pathname.split('/')[2]
+
+    const game = this.props.games.find(game => game.id === parseInt(id))
+    let reviewList = "No reviews available";
       
-     
     
-      return (
+    return (
   
-          <div className="">
+      <div className="">
+        
             <div className="hero position-relative align-items-center justify-content-center">
               <img
                 src={game.image_url}
                 alt={`${game.title} image`}
                 className="img-fluid"
-              />
-              
+            />
+            
+           
+
               <div className="overlay bg-dark" />
               <h1 className="display-4 position-relative">
                 {game.title}
                 
               </h1>
         
-            <div className="container py-5">
-              
             
-              
-            </div>
+
                 <div className="container py-5">
                     <button onClick={() => this.setState({
                         showReviewForm: !this.state.showReviewForm

@@ -1,3 +1,5 @@
+import Header from "../../components/Header"
+
 export const fetchGames = () => {
     return dispatch => {
         fetch('http://localhost:3000/games')
