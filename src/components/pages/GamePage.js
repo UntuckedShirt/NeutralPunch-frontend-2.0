@@ -25,10 +25,6 @@ class GamePage extends React.Component {
       })
     }
 
-    const handlechange = (e) => {
-      this.props.searchgame(e.target.value)
-    }
-
     const { games } = this.props;
   
     const allGames = games.map((game, index) => (
