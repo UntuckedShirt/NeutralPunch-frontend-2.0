@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchGames, searchgame } from "../../redux/actions/gameActions"
 import { connect } from "react-redux";
 import FilterGames from "../FilterGames"
+import LikeGames from '../LikeGames';
 
 
 class GamePage extends React.Component {
@@ -38,7 +39,7 @@ class GamePage extends React.Component {
             alt={`${game.title} image`}
           />
           <div className="card-body">
-           
+          <LikeGames />
             
              <Link to={`/games/${game.id}`} className="btn custom-button">
               {game.title}

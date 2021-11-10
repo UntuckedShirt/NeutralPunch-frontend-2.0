@@ -45,7 +45,8 @@ const gameReducer = (state = { games: [] }, action) => {
         default: 
             return state
 
-    }      
+    } 
+
 
 }
 
