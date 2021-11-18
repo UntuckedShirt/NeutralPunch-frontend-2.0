@@ -32,7 +32,7 @@ class GamePage extends React.Component {
       <div key={index} className="col-md-6 col-lg-4">
         <div className="card mb-4">
 
-
+          
           <img
             src={game.image_url}
             className="card-img-top"

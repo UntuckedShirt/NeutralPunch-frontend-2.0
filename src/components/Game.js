@@ -29,6 +29,8 @@ class Game extends React.Component {
 
     const id = window.location.pathname.split('/')[2]
 
+    const image_url = this.props.games.image_url
+
     const game = this.props.games.find(game => game.id === parseInt(id))
     let reviewList = "No reviews available";
       
